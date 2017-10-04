@@ -19,13 +19,12 @@ function onReady() {
      newLi.appendChild(checkbox);
      newLi.appendChild(deleteButton);
      newToDoText.value = '';
-   });
 
-  deleteButton.addEventListener('onClick', (event) => {
-    event.preventDefault();
-    deleteButton.removeParent(li);
+   deleteButton.addEventListener('click', (event) => {
+     event.preventDefault();
+     toDoList.removeChild(newLi);
    });
-
+      });
  }
 
 
