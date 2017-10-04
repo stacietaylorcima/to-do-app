@@ -8,13 +8,26 @@ function onReady() {
      let title = newToDoText.value;
      let newLi = document.createElement('li');
      let checkbox = document.createElement('input');
+     let deleteButton = document.createElement('input')
+     deleteButton.className = 'dltbtn';
+     deleteButton.type = 'button';
+     deleteButton.name = 'delbtn';
+     deleteButton.value = "Delete";
      checkbox.type = "checkbox";
      newLi.textContent = title;
      toDoList.appendChild(newLi);
      newLi.appendChild(checkbox);
+     newLi.appendChild(deleteButton);
      newToDoText.value = '';
    });
+
+  deleteButton.addEventListener('onClick', (event) => {
+    event.preventDefault();
+    deleteButton.removeParent(li);
+   });
+
  }
+
 
 window.onload = function() {
   alert("The window has loaded!");
