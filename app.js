@@ -24,13 +24,25 @@ function onReady() {
     toDos.forEach(function(toDo) {
       var newLi = document.createElement('li');
       var checkbox = document.createElement('input');
+      var deleteButton = document.createElement('input')
+      deleteButton.type = "button";
+      deleteButton.value = "Delete";
       checkbox.type = "checkbox";
 
       newLi.innerHTML = toDo.title;
 
       toDoList.appendChild(newLi);
       newLi.appendChild(checkbox);
+      newLi.appendChild(deleteButton);
+
+      deleteButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        toDoList.removeChild(newLi);
+      });
     });
+
+
+
   }
 
   addToDoForm.addEventListener('submit', function(event) {
